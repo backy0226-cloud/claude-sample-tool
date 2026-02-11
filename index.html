@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>かんたん計算デモ</title>
+    <style>
+      /* 画面全体の見た目を整えるための最低限のスタイル */
+      body {
+        font-family: sans-serif;
+        max-width: 640px;
+        margin: 40px auto;
+        padding: 0 16px;
+        line-height: 1.6;
+      }
+
+      /* ボタンを見やすくするためのスタイル */
+      button {
+        font-size: 1rem;
+        padding: 10px 16px;
+        cursor: pointer;
+      }
+
+      /* 計算結果を表示する領域 */
+      #result {
+        margin-top: 16px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <!--
+      このページは「HTML1枚だけ」で動くサンプルです。
+      下のボタンを押すと、JavaScriptで計算して結果を表示します。
+    -->
+    <h1>1 + 2 を表示してみよう</h1>
+    <p>ボタンを押すと、計算結果が下に表示されます。</p>
+
+    <!-- クリックすると JavaScript の処理を実行するボタン -->
+    <button id="calcButton" type="button">計算する</button>
+
+    <!-- JavaScriptで結果を書き込むための空の要素 -->
+    <p id="result" aria-live="polite"></p>
+
+    <script>
+      // まず、HTMLの要素（ボタンと結果表示エリア）を取得します。
+      const calcButton = document.getElementById('calcButton');
+      const result = document.getElementById('result');
+
+      // ボタンがクリックされたときに実行する処理を登録します。
+      calcButton.addEventListener('click', function () {
+        // 数値を変数に入れて、足し算します。
+        const left = 1;
+        const right = 2;
+        const total = left + right;
+
+        // 計算結果を文字列として画面に表示します。
+        result.textContent = `${left} + ${right} = ${total}`;
+      });
+    </script>
+  </body>
+</html>
